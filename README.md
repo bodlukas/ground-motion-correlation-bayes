@@ -11,7 +11,7 @@ To get a quick overview on how the estimated models can be applied in regional r
 
 ## Structure
 
-The folder `data` contains the data used to estimate the correlation model parameters, as well as some further data used in the introductory figure in the manuscript, and for the case study application.
+The folder [results](results/) `data` contains the data used to estimate the correlation model parameters, as well as some further data used in the introductory figure in the manuscript, and for the case study application.
 
 The folder `results` contains the post-processed results illustrated in the manuscript.
 
