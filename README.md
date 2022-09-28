@@ -19,7 +19,7 @@ The script [main_estimate_postprocess.py](main_estimate_postprocess.py) performs
 
 To get a quick overview on how the estimated models can be applied in regional risk simulations, we recommend to take a look at the [introductory_example_application.ipynb](introductory_example_application.ipynb) notebook. This can be easily run locally by setting up a virtual (mini-)conda environment using [environment_basic.yml](environment_basic.yml). It uses `numpy` implementation of the models [models_numpy.py](models_numpy.py).
 
-The notebook [figures.ipynb](figures.ipynb) uses the results to create the figures shown in the manuscript. It uses utility functions from [utils_plotting.py](utils_plotting.py).
+The notebook [figures.ipynb](figures.ipynb) reproduces the figures shown in the manuscript using utility functions from [utils_plotting.py](utils_plotting.py).
 
 
 
