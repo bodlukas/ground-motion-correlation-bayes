@@ -11,11 +11,11 @@ To get a quick overview on how the estimated models can be applied in regional r
 
 ## Structure
 
-The folder [results](results/) `data` contains the data used to estimate the correlation model parameters, as well as some further data used in the introductory figure in the manuscript, and for the case study application.
+The folder [data](data/) contains the data used to estimate the correlation model parameters, as well as some further data used in the introductory figure in the manuscript, and for the case study application.
 
-The folder `results` contains the post-processed results illustrated in the manuscript.
+The folder [results](results/) contains the post-processed results illustrated in the manuscript.
 
-The script `main_estimation_preprocessing.py` performs all computations - from model estimation to post-processing - to reproduce the results presented in the paper (and stored in the above mentioned folder). We do not recommend to run this computationally expensive script on a personal computer. These computations were performed on a high-performance cluster computer that runs on Linux. We used (mini-) conda to set up a virtual environment which is specified in the `environment_numpyro.yml` file. 
+The script [main_estimation_preprocessing](main_estimation_preprocessing.py) `main_estimation_preprocessing.py` performs all computations - from model estimation to post-processing - to reproduce the results presented in the paper (and stored in the above mentioned folder). We do not recommend to run this computationally expensive script on a personal computer. These computations were performed on a high-performance cluster computer that runs on Linux. We used (mini-) conda to set up a virtual environment which is specified in the `environment_numpyro.yml` file. 
 
 The notebook `plot_figures.ipynb` shows how the results are used to create the figures shown in the manuscript.
 
