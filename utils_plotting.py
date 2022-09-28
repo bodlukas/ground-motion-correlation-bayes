@@ -164,7 +164,9 @@ def fig1_e_to_h(fig, grid_spec, df, ref_idx, kE, kEA, kEAS):
     cbar = fig.colorbar(im, cax=cax, label='Correlation', 
         orientation='horizontal', alpha=1.0)
 
-#%% Figure 2
+# -------------------
+# Figure 2
+# -------------------
 from models_numpy import getEucDistance, getAngDistance, getSoilDissimilarity
 
 # Helper functions to count station pairs
@@ -227,7 +229,9 @@ def fig2(fig, axs, bin_e, bin_a, bin_s, nP1, nP2):
     cbar.ax.set_yticklabels(['3', '10','30','100','300','1000', '3000'])
     # cax.grid(True, linewidth=0.4)
 
-#%% Figure 3
+# -------------------
+# Figure 3
+# -------------------
 from scipy.stats import gaussian_kde
 def fig3(axss, dfs, titles):
     axs = axss[0,:]
@@ -277,7 +281,9 @@ def fig3(axss, dfs, titles):
         if k==0: ax.set_ylabel('Correlation')
         ax.set_xlabel('Euclidean distance $d_{\mathrm{E}}$ [km]')  
 
-#%% Figure 4
+# -------------------
+# Figure 4
+# -------------------
 def rhoEdist(dE, psi):
     corr = (np.exp(-np.power(dE/psi.LE, psi.gammaE)))
     return corr
@@ -322,7 +328,9 @@ def fig4(axs, dA, dS, dfE, dfEAS):
         ax.set_xlabel('Euclidean distance $d_{\mathrm{E}}$ [km]')
         if i==0: ax.set_ylabel('Correlation')
 
-#%% Figure 5
+# -------------------
+# Figure 5
+# -------------------
 def fig5(ax, vals, lppd):
     low_lim = np.floor(np.array([val.min() for val in vals]).min())
     up_lim = np.ceil(np.array([val.max() for val in vals]).max())
@@ -354,8 +362,9 @@ def fig5(ax, vals, lppd):
     ax.set_yticks([])
     ax.set_ylabel('Number of samples')
 
-#%% Figure 6
-
+# -------------------
+# Figure 6
+# -------------------
 def fig6(axs, vals, num_recs, mags):
     xaxis = num_recs
     mag_mp = [3.5, 4.5, 5.5, 6.5, 7.5]
@@ -399,7 +408,10 @@ def fig6(axs, vals, num_recs, mags):
     cbar.dividers.set_linewidth(0.4)
     cbar.dividers.set_color('black')
 
-#%% Figure 7
+# -------------------
+# Figure 7
+# -------------------
+
 def fig7(axs, valsA, valsB, models, periods):
     cmap = plt.get_cmap('Blues')
     colors = cmap([0.3, 0.7, 1.0])
@@ -448,7 +460,9 @@ def fig7(axs, valsA, valsB, models, periods):
     ax.text(0.5, 0.05, 'Baseline: LPPD of model E', transform=ax.transAxes, 
         fontsize=8, ha='center', va='bottom', bbox=props)
 
-#%% Figure 8 (bottom row)
+# -------------------
+# Figure 8 (bottom row)
+# -------------------
 def fig8(ax, vals, lppd, models, k):
     low_lim = np.floor(np.array([val.min() for val in vals]).min())
     up_lim = np.ceil(np.array([val.max() for val in vals]).max())
@@ -471,8 +485,9 @@ def fig8(ax, vals, lppd, models, k):
         ax.legend(loc='upper right')
         ax.set_ylabel('Frequency')
 
-#%% Figure 10
-
+# -------------------
+# Figure 10
+# -------------------
 def ecdf(sim, x):
     F = []
     for i in x:
@@ -496,7 +511,9 @@ def fig10(ax, vals, xaxis):
     ax.text(0.24, 0.09, 'Subregion', transform=ax.transAxes, fontsize=8,
         va='center', ha='right')
 
-#%% Figure 11
+# -------------------
+# Figure 11
+# -------------------
 def fig11(axss, dfs, cols, thresholds, xaxis):
     nums = [[1,2],[3,4]]
     props = dict(boxstyle='circle', 
