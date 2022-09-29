@@ -1,5 +1,7 @@
 # Parameter estimation for spatial ground-motion correlation models using Bayesian inference
 
+[![DOI](https://zenodo.org/badge/542139247.svg)](https://zenodo.org/badge/latestdoi/542139247)
+
 This repository contains the code and data used to estimate parameters of spatial correlation models using Bayesian inference. It also contains implementations of novel correlation models that account for site and path effects in addition to spatial proximity. The methodology and the novel correlation models are discussed in :
 > Bodenmann L., Baker J. W., Stojadinovic B. (2022): "Accounting for path and site effects in spatial ground-motion correlation models using Bayesian Inference" (Include link and further info once available).
 
