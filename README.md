@@ -20,12 +20,12 @@ The script [main_estimate_postprocess.py](main_estimate_postprocess.py) performs
 
 ### Model application and plotting
 
-**Quick start** Take a look at the [introductory_example_application.ipynb](introductory_example_application.ipynb) notebook to see how the estimated models can be applied in regional risk simulations. It uses `numpy` implementation of the models [models_numpy.py](models_numpy.py) and only requires minimal additional packages as specified in [environment_basic.yml](environment_basic.yml).
+**Quick start** Take a look at the [introductory_example_application.ipynb](introductory_example_application.ipynb) notebook to see how the estimated models can be applied in regional risk simulations. It uses `numpy` implementation of the models [models_numpy.py](models_numpy.py) and the required packages are specified in [environment_basic.yml](environment_basic.yml).
 
 The notebook [figures.ipynb](figures.ipynb) reproduces the figures shown in the manuscript using utility functions from [utils_plotting.py](utils_plotting.py).
 
+## Installation
 
+We performed model estimation on Linux and did not test other opearting systems. To perform model estimation on your local machine, you can set up a Windows Subsystem for Linux ([WSL](https://learn.microsoft.com/en-us/windows/wsl/install)). Then install [miniconda](https://docs.conda.io/en/latest/miniconda.html) and create an environment as `conda env create -f environment_numpyro.yml`.
 
-
-
-
+Application of the estimated models and the plotting of the results should also work on other operating systems than Linux and you can create a miniconda environment as `conda env create -f environment_basic.yml`.
