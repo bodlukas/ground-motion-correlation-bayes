@@ -6,6 +6,9 @@ This repository contains the code to perform Bayesian parameter estimation for s
 
 > Bodenmann L., Baker J. W., Stojadinovic B. (20xx): "Accounting for path and site effects in spatial ground-motion correlation models using Bayesian inference" (Include link and further info once available).
 
+![alt text](https://github.com/bodlukas/ground-motion-correlation-bayes/blob/main/data/corr_schema_dark.png#gh-dark-mode-only)
+![alt text](https://github.com/bodlukas/ground-motion-correlation-bayes/blob/main/data/corr_schema_bright.png#gh-light-mode-only)
+
 ## Structure
 
 The folder [data](data/) contains the data used to estimate the correlation model parameters, as well as some further data used in the introductory figure in the manuscript, and for the case study application.
