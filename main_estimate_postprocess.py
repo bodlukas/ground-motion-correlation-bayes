@@ -11,7 +11,9 @@ cluster computer and parallelized various for-loops.
 
 For a thorough explanation of the estimation and 
 post-processing computations check out the following notebook:
-...
+
+introductory_example_estimation.ipynb
+
 This can be easily imported to colab and you don't have
 to set up a special environment locally.
 

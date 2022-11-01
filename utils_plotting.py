@@ -127,7 +127,7 @@ def fig1_e_to_h(fig, grid_spec, df, ref_idx, kE, kEA, kEAS):
     lev = np.arange(0,1.2,0.2)
 
     x_ref, y_ref = (df.x[ref_idx], df.y[ref_idx])
-    x_event, y_event = (0, 0)
+    x_event, y_event = (-5, 10)
     for i, val in enumerate(vals):
         ax = fig.add_subplot(grid_spec[0,i])
         if i == 0:
@@ -146,7 +146,7 @@ def fig1_e_to_h(fig, grid_spec, df, ref_idx, kE, kEA, kEAS):
         ax.set_xlabel('Easting [km]')
         if i==0: ax.set_ylabel('Northing [km]')
         if i==1:
-            ax.text(0, 3.5, 'epicenter', fontsize=8, ha='center')
+            ax.text(-5, 6.5, 'epicenter', fontsize=8, ha='center')
             ax.annotate("reference site",
                         xy=(x_ref, y_ref-0.5), xycoords='data',
                         xytext=(x_ref, -11.3), textcoords='data',
@@ -256,7 +256,8 @@ def fig3(axss, dfs, titles):
         ax.set_xlabel(r'Lengthscale $\ell_{\mathrm{E}}$ [km]')
         ax.set_xlim([4, 46])
         ax.set_ylim([0.26, 1.24])
-        ax.set_title(titles[i], fontsize=9)
+        ax.set_title(titles[0][i], fontsize=9)
+        ax.text(0.5, 0.98, titles[1][i], fontsize=9, transform=ax.transAxes, ha='center', va='top')
         if i==1:
             ax.text(0.68, 0.3, r'sample $\mathbf{\psi}_{\mathrm{E},r}$', 
                 transform=ax.transAxes, 
