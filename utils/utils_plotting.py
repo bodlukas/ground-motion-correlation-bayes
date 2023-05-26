@@ -507,12 +507,12 @@ def fig10(ax, vals, xaxis):
     ax.set_ylim([0.01, 1])
     ax.grid(axis='y', which='both')
     legend = ax.legend(loc='upper right', fontsize=8)
-    ax.set_ylabel('$P(A_{\{Sa(1s)>0.75g\}}>a|rup)$')
+    ax.set_ylabel('$P(A_{\{Sa(1s)>sa\}}>a|rup)$')
     ax.set_xlabel('Proportion of sites $a$')    
     ax.text(0.3, 0.09, '2', transform=ax.transAxes, fontsize=8,
         va='center', ha='center', bbox=props)
     ax.text(0.24, 0.09, 'Subregion', transform=ax.transAxes, fontsize=8,
-        va='center', ha='right')
+        va='center', ha='right')   
 
 # -------------------
 # Figure 11
