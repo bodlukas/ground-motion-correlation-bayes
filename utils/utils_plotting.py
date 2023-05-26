@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import numpy as np
 import matplotlib as mpl
+import sys
+sys.path.append('../')
 # -------------------
 # General
 # -------------------
@@ -505,50 +507,101 @@ def fig10(ax, vals, xaxis):
     ax.set_ylim([0.01, 1])
     ax.grid(axis='y', which='both')
     legend = ax.legend(loc='upper right', fontsize=8)
-    ax.set_ylabel('$P(A_{\{Sa(1s)>0.75g\}}>a|rup)$')
+    ax.set_ylabel('$P(A_{\{Sa(1s)>sa\}}>a|rup)$')
     ax.set_xlabel('Proportion of sites $a$')    
     ax.text(0.3, 0.09, '2', transform=ax.transAxes, fontsize=8,
         va='center', ha='center', bbox=props)
     ax.text(0.24, 0.09, 'Subregion', transform=ax.transAxes, fontsize=8,
-        va='center', ha='right')
+        va='center', ha='right')   
 
 # -------------------
 # Figure 11
 # -------------------
-def fig11(axss, dfs, cols, thresholds, xaxis):
-    nums = [[1,2],[3,4]]
+def fig11(axss, dfs, layout='gray'):
+    xaxis = dfs[0]['a'].values
     props = dict(boxstyle='circle', 
         facecolor='white', alpha=1)
-    for j in range(2):
-        axs = axss[j,:]
-        for i, ax in enumerate(axs):
-            ax.plot(xaxis, dfs[0][cols[j][i]], 
-                color='black', lw=1.5, label='E',
-                ls='--', zorder=2)
-            ax.plot(xaxis, dfs[1][cols[j][i]], 
-                    color='tab:orange', lw=1.75, 
+    for i, col in enumerate(dfs[0].columns.values[1:]):
+        ax = list(axss.flatten())[i]
+        ax.plot(xaxis, dfs[0][col], color='black', lw=1.5, 
+                label='E', ls='--', zorder=2)
+        ax.plot(xaxis, dfs[1][col], color='tab:orange', lw=1.75, 
                     label='EAS', ls='-', zorder=1)
-            if i == 0:
-                ax.set_ylabel('$P(A_{\{Sa(1s)>' + 
-                    str(thresholds[j]) + 
-                    'g\}}>a|rup)$')
-                ax.legend(title='Model', loc='lower left')
-            ax.set_yscale('log')
-            ax.set_ylim([0.01, 1])
-            ax.grid(axis='y', which='both')
-            if j==1:
-                ax.set_xlabel('Proportion of sites $a$')
-            if i<2:
-                ax.text(0.6, 0.9, str(nums[j][i]), transform=ax.transAxes, fontsize=8.5,
-                    va='center', ha='center', bbox=props)
-                ax.text(0.53, 0.9, 'Subregion', transform=ax.transAxes, fontsize=8.5,
-                    va='center', ha='right')
-            else:
-                ax.text(0.6, 0.9, str(nums[j][0]), transform=ax.transAxes, fontsize=8.5,
-                    va='center', ha='center', bbox=props)
-                ax.text(0.68, 0.9, '&', transform=ax.transAxes, fontsize=8.5,
-                    va='center', ha='center')     
-                ax.text(0.764, 0.9, str(nums[j][1]), transform=ax.transAxes, fontsize=8.5,
-                    va='center', ha='center', bbox=props)
-                ax.text(0.53, 0.9, 'Subregions', transform=ax.transAxes, fontsize=8.5,
-                    va='center', ha='right')
+        ax.set_yscale('log')
+        ax.set_ylim([0.01, 1])
+        if i == 0:
+            legend = ax.legend(title='Model', loc='lower left')
+            plt.setp(legend.get_title(),fontsize=8, fontweight='bold')
+        if (i == 0) | (i==3): 
+            ax.set_ylabel('$P(A_{\{Sa>sa\}}>a|rup)$')
+        if i>2: ax.set_xlabel('Proportion of sites $a$')
+        if layout=='gray':
+            ax.grid(axis='y',which='both')
+        else:
+            ax.grid(axis='y',which='both', color='gray', lw=0.2)
+            ax.grid(axis='x', color='gray', lw=0.2)
+        if len(col.split('_')) == 1:
+            nsr = col[-1]
+            ax.text(0.6, 0.9, nsr, transform=ax.transAxes, fontsize=8.5,
+                va='center', ha='center', bbox=props)
+            ax.text(0.53, 0.9, 'Subregion', transform=ax.transAxes, fontsize=8.5,
+                va='center', ha='right')
+        else:
+            col_t1, col_t2 = col.split('_')
+            nsr = col_t1[-1]
+            ax.text(0.6, 0.9, nsr, transform=ax.transAxes, fontsize=8.5,
+                va='center', ha='center', bbox=props)
+            ax.text(0.68, 0.9, '&', transform=ax.transAxes, fontsize=8.5,
+                va='center', ha='center')
+            nsr = col_t2[-1]
+            ax.text(0.764, 0.9, nsr, transform=ax.transAxes, fontsize=8.5,
+                va='center', ha='center', bbox=props)
+            ax.text(0.53, 0.9, 'Subregions', transform=ax.transAxes, fontsize=8.5,
+                va='center', ha='right')
+
+# -------------------
+# For supplementary material (comparison across periods)
+# -------------------
+def fig_Supp_CS(axss, dfs, layout='gray'):
+    xaxis = dfs[0]['a'].values
+    props = dict(boxstyle='circle', 
+        facecolor='white', alpha=1)
+    for i, col in enumerate(dfs[0].columns.values[1:]):
+        ax = list(axss.flatten())[i]
+        ax.plot(xaxis, dfs[0][col], color='tab:green', lw=1.5, 
+                label='T = 0.3s', ls='-', zorder=1)
+        ax.plot(xaxis, dfs[1][col], color='tab:orange', lw=1.75, 
+                    label='T = 1s', ls='-', zorder=2)
+        ax.plot(xaxis, dfs[2][col], color='black', lw=1.75, 
+                    label='T = 3s', ls='-', zorder=1)
+        ax.set_yscale('log')
+        ax.set_ylim([0.01, 1])
+        if (i == 0) | (i==3): 
+            ax.set_ylabel('$P(A_{\{Sa>sa\}}>a|rup)$')
+        if i == 0:
+            legend = ax.legend(title='Sa(T)', loc='lower left')
+            plt.setp(legend.get_title(),fontsize=8, fontweight='bold')
+        if i>2: ax.set_xlabel('Proportion of sites $a$')
+        if layout=='gray':
+            ax.grid(axis='y',which='both')
+        else:
+            ax.grid(axis='y',which='both', color='gray', lw=0.2)
+            ax.grid(axis='x', color='gray', lw=0.2)
+        if len(col.split('_')) == 1:
+            nsr = col[-1]
+            ax.text(0.6, 0.9, nsr, transform=ax.transAxes, fontsize=8.5,
+                va='center', ha='center', bbox=props)
+            ax.text(0.53, 0.9, 'Subregion', transform=ax.transAxes, fontsize=8.5,
+                va='center', ha='right')
+        else:
+            col_t1, col_t2 = col.split('_')
+            nsr = col_t1[-1]
+            ax.text(0.6, 0.9, nsr, transform=ax.transAxes, fontsize=8.5,
+                va='center', ha='center', bbox=props)
+            ax.text(0.68, 0.9, '&', transform=ax.transAxes, fontsize=8.5,
+                va='center', ha='center')
+            nsr = col_t2[-1]
+            ax.text(0.764, 0.9, nsr, transform=ax.transAxes, fontsize=8.5,
+                va='center', ha='center', bbox=props)
+            ax.text(0.53, 0.9, 'Subregions', transform=ax.transAxes, fontsize=8.5,
+                va='center', ha='right')
