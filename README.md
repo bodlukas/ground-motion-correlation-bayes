@@ -4,7 +4,7 @@
 
 This repository contains the code to perform Bayesian parameter estimation for spatial correlation models, as well as implementations of novel correlation models that account for site and path effects in addition to spatial proximity. The methodology and the novel correlation models are presented in :
 
-> Bodenmann L., Baker J. W., Stojadinovic B. (2023): "Accounting for path and site effects in spatial ground-motion correlation models using Bayesian inference". https://doi.org/10.5194/nhess-2022-267 [Preprint]
+> Bodenmann L., Baker J. W., Stojadinovic B. (2023): "Accounting for path and site effects in spatial ground-motion correlation models using Bayesian inference". Natural Hazards Earth System Sciences, 23, 2387–2402, https://doi.org/10.5194/nhess-23-2387-2023 
 
 ![alt text](https://github.com/bodlukas/ground-motion-correlation-bayes/blob/main/data/corr_schema_dark.png#gh-dark-mode-only)
 ![alt text](https://github.com/bodlukas/ground-motion-correlation-bayes/blob/main/data/corr_schema_bright.png#gh-light-mode-only)
